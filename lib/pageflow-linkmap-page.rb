@@ -1,4 +1,5 @@
 require 'pageflow/linkmap_page/engine'
+require 'paperclip_tempfile_factory'
 
 module Pageflow
   module LinkmapPage
