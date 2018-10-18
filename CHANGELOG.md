@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### Version 1.2.1
+
+2018-10-18
+
+[Compare changes](https://github.com/codevise/pageflow-linkmap-page/compare/v1.2.0...v1.2.1)
+
+- Enforce min size when dragging new hotspot
+  ([#37](https://github.com/codevise/pageflow-linkmap-page/pull/37))
+
 ### Version 1.2.0
 
 2018-07-30
