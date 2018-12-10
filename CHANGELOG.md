@@ -1,8 +1,10 @@
 # CHANGELOG
 
-### Unreleased Changes
+### Version 1.4.0
 
-[Compare changes](https://github.com/codevise/pageflow-linkmap-page/compare/1-3-stable...master)
+2018-12-10
+
+[Compare changes](https://github.com/codevise/pageflow-linkmap-page/compare/1-3-stable...v1.4.0)
 
 - Add theme variables for circle and connector line colors
   ([#46](https://github.com/codevise/pageflow-linkmap-page/pull/46),
