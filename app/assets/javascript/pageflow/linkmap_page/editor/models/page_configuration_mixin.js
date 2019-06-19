@@ -3,11 +3,13 @@
     initialize: function(options) {
       this.listenTo(this,
                     'change:linkmap_color_map_image_id',
-                    function(model, imageFileId) {
-                      if (imageFileId) {
+                    function(model, imageFilePermaId) {
+                      if (imageFilePermaId) {
+                        var sourceImageFile = pageflow.imageFiles.getByPermaId(imageFilePermaId);
+
                         this.setReference('linkmap_color_map_file_id',
                                           colorMapFiles().findOrCreateBy({
-                                            source_image_file_id: imageFileId
+                                            source_image_file_id: sourceImageFile.id
                                           }));
                       }
                       else {
@@ -22,8 +24,8 @@
             ' change:linkmap_color_map_file_id' +
             ' change:linkmap_color_map_file_id:ready',
           function() {
-            var colorMapFile = colorMapFiles().get(this.get('linkmap_color_map_file_id'));
-            var imageFile = pageflow.imageFiles.get(this.get(attribute));
+            var colorMapFile = this.getReference('linkmap_color_map_file_id', colorMapFiles());
+            var imageFile = this.getReference(attribute, pageflow.imageFiles);
 
             if (imageFile && colorMapFile && colorMapFile.isReady()) {
               this.setReference('linkmap_masked_' + attribute,
@@ -40,7 +42,7 @@
     },
 
     linkmapReadyColorMapFileId: function() {
-      var colorMapFile = colorMapFiles().get(this.get('linkmap_color_map_file_id'));
+      var colorMapFile = this.getReference('linkmap_color_map_file_id', colorMapFiles());
       return colorMapFile && colorMapFile.isReady() ? colorMapFile.id : null;
     },
 
