@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### Version 2.6.1
+
+2019-11-21
+
+[Compare changes](https://github.com/codevise/pageflow-linkmap-page/compare/v2.6.0...v2.6.1)
+
+- Delete cleanup migration
+  ([#69](https://github.com/codevise/pageflow-linkmap-page/pull/69))
+
 ### Version 2.6.0
 
 2019-11-04
