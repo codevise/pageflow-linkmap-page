@@ -11,7 +11,7 @@ pageflow.linkmapPage.Area = Backbone.Model.extend({
     //     pageflow.xxx.getPolymorphic(this.get('target_type'), this.get('target_id'));
     //
     if (this.get('target_type') === 'audio_file') {
-      return pageflow.audioFiles.get(this.get('target_id'));
+      return pageflow.audioFiles.getByPermaId(this.get('target_id'));
     }
     else if (this.get('target_type') === 'page') {
       return pageflow.pages.getByPermaId(this.get('target_id'));
