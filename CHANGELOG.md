@@ -1,5 +1,14 @@
 # CHANGELOG
 
+### Version 2.7.1
+
+2020-08-13
+
+[Compare changes](https://github.com/codevise/pageflow-linkmap-page/compare/v2.7.0...v2.7.1)
+
+- Bug fix: Use perma id for audio hotspot files
+  ([#72](https://github.com/codevise/pageflow-linkmap-page/pull/72))
+
 ### Version 2.7.0
 
 2020-04-01
