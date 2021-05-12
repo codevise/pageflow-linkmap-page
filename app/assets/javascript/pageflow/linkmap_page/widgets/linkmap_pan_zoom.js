@@ -81,7 +81,7 @@
       this._ensureScrollerCanNotScroll();
       this._resizePanorama();
       this._transformPanoramaWrapper();
-      this._markAllButCurrentAreaAsDisabled();
+      this._disableAreas();
     },
 
     goToAreaByIndex: function(index) {
@@ -161,13 +161,10 @@
       this.panorama.height(this.panoramaSize.height);
     },
 
-    _markAllButCurrentAreaAsDisabled: function() {
-      var currentArea = this.currentArea;
-
-      this.options.areas().each(function() {
-        var area = $(this);
-        area.toggleClass('enabled', area.is(currentArea));
-      });
+    _disableAreas: function() {
+      // linkmapareaclick event for current area is dispatched above
+      // when user clicks anywhere in the page.
+      this.options.areas().removeClass('enabled');
     },
 
     _transformPanoramaWrapper: function() {
