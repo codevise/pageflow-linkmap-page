@@ -187,7 +187,7 @@ pageflow.pageType.register('linkmap_page', _.extend({
     wrapper
       .attr('data-width', template.data('videoWidth'))
       .attr('data-height', template.data('videoHeight'));
-    
+
     var options = {
       volumeFading: true,
       fallbackToMutedAutoplay: true,
@@ -244,7 +244,11 @@ pageflow.pageType.register('linkmap_page', _.extend({
     this.multiPlayer = pageflow.audio.createMultiPlayer({
       playFromBeginning: true,
       fadeDuration: 1000,
-      hooks: pageflow.atmo.createMediaPlayerHooks(configuration)
+      hooks: pageflow.atmo.createMediaPlayerHooks(configuration),
+      mediaEvents: true,
+      context: {
+        page: pageElement.page('instance')
+      }
     });
 
     this.multiPlayer.on('play', function(options) {
