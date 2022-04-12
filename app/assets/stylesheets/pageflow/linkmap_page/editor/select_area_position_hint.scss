@@ -1,9 +1,8 @@
 .select_area_position_hint {
-  background-color: #fff;
   padding: 10px;
 
   button {
     margin-top: 10px;
-    @include button;
+    @include simple-button;
   }
 }
