@@ -1,12 +1,35 @@
 require 'pageflow-external-links'
+require 'paperclip'
+
+require 'pageflow/linkmap_page/paperclip_processors/colors'
+require 'pageflow/linkmap_page/paperclip_processors/color_mask'
+require 'pageflow/linkmap_page/paperclip_processors/invoke_callback'
+require 'pageflow/linkmap_page/paperclip_processors/image_dimensions'
 
 module Pageflow
   module LinkmapPage
     class Engine < Rails::Engine
       isolate_namespace Pageflow::LinkmapPage
 
-      config.autoload_paths << File.join(config.root, 'lib')
       config.i18n.load_path += Dir[config.root.join('config', 'locales', '**', '*.yml').to_s]
+
+      if Rails.respond_to?(:autoloaders)
+        lib = root.join('lib')
+
+        config.autoload_paths << lib
+        config.eager_load_paths << lib
+
+        initializer 'pageflow_linkmap_page.autoloading' do
+          Rails.autoloaders.main.ignore(
+            lib.join('generators'),
+            lib.join('pageflow-linkmap-page.rb'),
+            lib.join('pageflow/linkmap_page/paperclip_processors'),
+            lib.join('pageflow/linkmap_page/version.rb')
+          )
+        end
+      else
+        config.autoload_paths << File.join(config.root, 'lib')
+      end
 
       initializer 'pageflow_linkmap_page.paperclip' do
         Paperclip.configure do |config|

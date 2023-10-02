@@ -1,4 +1,5 @@
 require 'pageflow/linkmap_page/engine'
+require 'pageflow/linkmap_page/version'
 
 module Pageflow
   module LinkmapPage
