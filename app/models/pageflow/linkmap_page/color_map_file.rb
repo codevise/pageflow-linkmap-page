@@ -46,7 +46,11 @@ module Pageflow
 
       do_not_validate_attachment_file_type :attachment
 
-      serialize :attachment_colors
+      if ActiveRecord.version >= Gem::Version.new('7.1')
+        serialize :attachment_colors, type: Object, coder: YAML
+      else
+        serialize :attachment_colors
+      end
 
       def sprite_url
         attachment.url(:sprite)
