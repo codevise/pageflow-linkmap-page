@@ -11,8 +11,4 @@ if ENV['PAGEFLOW_DEPENDENCIES'] == 'experimental'
     gem 'pageflow'
     gem 'pageflow-support'
   end
-
-  gem 'pageflow-external-links', git: 'https://github.com/codevise/pageflow-external-links'
-else
-  gem 'rails', '5.2.6'
 end
