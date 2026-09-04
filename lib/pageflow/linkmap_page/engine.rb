@@ -54,7 +54,7 @@ module Pageflow
         g.helper false
       end
 
-      initializer 'pageflow_linkmap_page.paperclip' do
+      initializer 'pageflow_linkmap_page.paperclip_data_uri_adapter' do
         Paperclip::DataUriAdapter.register
       end
     end
